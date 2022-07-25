@@ -1,3 +1,6 @@
+# Development
+.idea/*
+
 # Logs
 logs
 *.log
