@@ -1,5 +1,5 @@
 const fsPath = require("path");
-const { FilebaseStorage } = require('filebase.storage')
+const { FilebaseClient } = require('@filebase/client')
 const { filesFromPath } = require('files-from-path')
 
 module.exports = {
@@ -42,7 +42,7 @@ module.exports = {
 
         console.log(`Storing files...`);
         let tokenString = `${api.key}:${api.secret}:${api.bucket}`;
-        let cid = await FilebaseStorage.storeDirectory(
+        let cid = await FilebaseClient.storeDirectory(
             { endpoint: 'https://s3.filebase.com', token: btoa(tokenString) },
             files,
             pinName

@@ -33,7 +33,7 @@
     "@actions/core": "1.4.0",
     "@actions/github": "5.0.0",
     "@pinata/sdk": "1.1.23",
-    "filebase.storage": "git://github.com/filebase/nft.storage.git",
+    "@filebase/client": "0.0.1",
     "files-from-path": "^0.2.6",
     "ipfs-http-client": "55.0.0",
     "it-last": "1.0.5",
