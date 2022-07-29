@@ -1,3 +1,6 @@
+# Development Files
+node_modules
+
 # Logs
 logs
 *.log
