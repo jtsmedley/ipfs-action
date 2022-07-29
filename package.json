@@ -1,13 +1,14 @@
 {
   "name": "ipfs-action",
-  "version": "0.2.2-alpha.0",
+  "version": "0.3.0-alpha.1",
   "description": "IPFS upload action",
   "main": "index.js",
   "scripts": {
     "test": "jest",
     "lint": "eslint --max-warnings 0 runner.js uploader.js pinners/*.js",
     "prune-prod": "npm prune --production",
-    "release": "npm i && release-it"
+    "release": "npm i && npm run build && release-it",
+    "build": "ncc build index.js -o dist"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,8 @@
     "@actions/core": "1.4.0",
     "@actions/github": "5.0.0",
     "@pinata/sdk": "1.1.23",
+    "@filebase/client": "0.0.1",
+    "files-from-path": "^0.2.6",
     "ipfs-http-client": "55.0.0",
     "it-last": "1.0.5",
     "peer-id": "0.16.0"
