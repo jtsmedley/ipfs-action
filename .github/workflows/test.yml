@@ -9,18 +9,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Publish Test [Pinata]
-        env:
-          PINATA_KEY: ${{ secrets.PINATA_KEY }}
-        if: "${{ env.PINATA_KEY != '' }}"
-        uses: ./
-        with:
-          path: 'dist'
-          service: 'pinata'
-          pinName: 'ipfs-action'
-          pinataKey: ${{ secrets.PINATA_KEY }}
-          pinataSecret: ${{ secrets.PINATA_SECRET }}
-
       - name: Publish Test [Filebase]
         env:
           FILEBASE_BUCKET: ${{ secrets.FILEBASE_BUCKET }}
@@ -34,6 +22,18 @@ jobs:
           filebaseKey: ${{ secrets.FILEBASE_KEY }}
           filebaseSecret: ${{ secrets.FILEBASE_SECRET }}
           key: ${{ secrets.FILEBASE_NAME }}
+
+      - name: Publish Test [Pinata]
+        env:
+          PINATA_KEY: ${{ secrets.PINATA_KEY }}
+        if: "${{ env.PINATA_KEY != '' }}"
+        uses: ./
+        with:
+          path: 'dist'
+          service: 'pinata'
+          pinName: 'ipfs-action'
+          pinataKey: ${{ secrets.PINATA_KEY }}
+          pinataSecret: ${{ secrets.PINATA_SECRET }}
 
       - name: Publish Test [Infura]
         env:
