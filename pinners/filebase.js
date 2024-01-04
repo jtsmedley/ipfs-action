@@ -28,7 +28,7 @@ export default {
   upload: async (api, options) => {
     console.log(`Parsing options...`);
     const { path, pinName, verbose, key } = options;
-    console.log(`Parsed Options: ${JSON.stringify(options)}`);
+    console.log(`Parsed Options`);
 
     let source = path;
     if (!fsPath.isAbsolute(source)) {
