@@ -1,4 +1,4 @@
-import fsPath from "node:path";
+import path from "node:path";
 import { ObjectManager, NameManager } from "@filebase/sdk";
 import { filesFromPaths} from "files-from-path";
 
@@ -27,13 +27,13 @@ export default {
   },
   upload: async (api, options) => {
     console.log(`Parsing options...`);
-    const { path, pinName, verbose, key } = options;
+    const { path: sourcePath, pinName, verbose, key } = options;
     console.log(`Parsed Options: ${JSON.stringify(options)}`);
 
-    let source = path;
-    if (!fsPath.isAbsolute(source)) {
+    let source = sourcePath;
+    if (!path.isAbsolute(source)) {
       const dir = (process.env.GITHUB_WORKSPACE || process.cwd()).toString();
-      source = fsPath.join(dir, source);
+      source = path.join(dir, source);
     }
 
     console.log(`Adding files...`);

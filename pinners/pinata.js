@@ -1,5 +1,5 @@
 import pinataSDK from "@pinata/sdk";
-import fsPath from "node:path";
+import path from "node:path";
 
 let pinataOptions = {
   pinataOptions: {
@@ -23,12 +23,12 @@ export default {
     return pinataSDK(pinataKey, pinataSecret);
   },
   upload: async (api, options) => {
-    const { path, pinataPinName, verbose } = options;
+    const { path: sourcePath, pinataPinName, verbose } = options;
 
-    let source = path;
-    if (!fsPath.isAbsolute(source)) {
+    let source = sourcePath;
+    if (!path.isAbsolute(source)) {
       const dir = (process.env.GITHUB_WORKSPACE || process.cwd()).toString();
-      source = fsPath.join(dir, source);
+      source = path.join(dir, source);
     }
 
     if (pinataPinName) {
