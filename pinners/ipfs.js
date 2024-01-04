@@ -1,8 +1,8 @@
 import { create, globSource } from "kubo-rpc-client";
 import PeerId from "peer-id";
 import last from "it-last";
-import fs from "node:fs";
-import path from "node:path";
+import fs from "fs";
+import path from "path";
 
 export default {
   name: "IPFS",

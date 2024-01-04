@@ -1,4 +1,4 @@
-import * as fsPath from "node:path";
+import * as fsPath from "path";
 import { ObjectManager, NameManager } from "@filebase/sdk";
 import { filesFromPaths} from "files-from-path";
 
